@@ -32,6 +32,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 200)
     }
+    
+    
 }
 
 class VideoCell: UICollectionViewCell {
@@ -43,12 +45,15 @@ class VideoCell: UICollectionViewCell {
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     func setupViews() {
         addSubview(thumbnailImageView)
-        thumbnailImageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView]))
     }
     
     required init?(coder aDecoder: NSCoder) {
