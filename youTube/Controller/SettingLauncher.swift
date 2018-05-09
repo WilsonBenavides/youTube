@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsLauncher: NSObject {
+class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let blackView = UIView()
     
@@ -19,8 +19,10 @@ class SettingsLauncher: NSObject {
         return cv
     }()
     
+    let cellId = "cellId"
+    
     func showSettings() {
-        //show menu
+        
         if let window = UIApplication.shared.keyWindow {
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -37,7 +39,7 @@ class SettingsLauncher: NSObject {
             blackView.frame = window.frame
             blackView.alpha = 0
             
-            UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
                 
                 self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
@@ -55,8 +57,25 @@ class SettingsLauncher: NSObject {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 50)
+    }
+    
     override init() {
         super.init()
-        //start doing something here maybe...
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(SettingCell.self, forCellWithReuseIdentifier: cellId)
     }
 }

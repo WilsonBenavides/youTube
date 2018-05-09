@@ -41,7 +41,6 @@ class VideoCell: BaseCell {
                 subtitleTextView.text = subtitleText
             }
             
-            //measure title text
             if let title = video?.title {
                 let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000)
                 let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
@@ -95,7 +94,6 @@ class VideoCell: BaseCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        //label.backgroundColor = .purple
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Taylor Swift - Blank Space"
         label.numberOfLines = 2
@@ -103,8 +101,7 @@ class VideoCell: BaseCell {
     }()
     
     let subtitleTextView: UITextView = {
-        let textView = UITextView()
-        //textView.backgroundColor  = .red
+        let textView = UITextView()        
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.text = "TaylorSwifVEVO - 1,604,607 views - 2 years "
         textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)

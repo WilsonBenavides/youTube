@@ -10,26 +10,6 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-//    var videos: [Video] = {
-//        var kanyeChannel = Channel()
-//        kanyeChannel.name = "KanyeIsTheBestChannel"
-//        kanyeChannel.profileImageName = "kanye_profile"
-//
-//        var blankSpaceVideo = Video()
-//        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-//        blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-//        blankSpaceVideo.channel = kanyeChannel
-//        blankSpaceVideo.numberOfViews = 239843093
-//
-//        var badBloodView = Video()
-//        badBloodView.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
-//        badBloodView.thumbnailImageName = "taylor_swift_bad_blood"
-//        badBloodView.channel = kanyeChannel
-//        badBloodView.numberOfViews = 1234567890
-//
-//        return [blankSpaceVideo, badBloodView]
-//    }()
-    
     var videos : [Video]?
     
     func fetchVideos() {
@@ -65,13 +45,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                     self.collectionView?.reloadData()
                 }
                 
-                //print(json)
             } catch let jsonError {
                 print(jsonError)
             }
-            
-            //let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            //print(str)
             
         }.resume()
     }
@@ -87,8 +63,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.text = "Home"
         titleLabel.textColor = .white
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
-        //titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        titleLabel.font = UIFont.systemFont(ofSize: 30)        
         navigationItem.titleView = titleLabel
         
         collectionView?.backgroundColor = UIColor.white

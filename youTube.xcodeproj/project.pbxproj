@@ -17,6 +17,7 @@
 		108C60F920A22D6E0051EFBE /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C60F820A22D6E0051EFBE /* VideoCell.swift */; };
 		108C60FC20A263ED0051EFBE /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C60FB20A263ED0051EFBE /* MenuBar.swift */; };
 		108C60FF20A29F3B0051EFBE /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C60FE20A29F3B0051EFBE /* Video.swift */; };
+		109078EC20A36C67002A5BD1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109078EB20A36C67002A5BD1 /* SettingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		108C60F820A22D6E0051EFBE /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		108C60FB20A263ED0051EFBE /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		108C60FE20A29F3B0051EFBE /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		109078EB20A36C67002A5BD1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			children = (
 				108C60F820A22D6E0051EFBE /* VideoCell.swift */,
 				108C60FB20A263ED0051EFBE /* MenuBar.swift */,
+				109078EB20A36C67002A5BD1 /* SettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				10118E1420A3227900F721D7 /* SettingLauncher.swift in Sources */,
 				108C60E520A1412D0051EFBE /* HomeController.swift in Sources */,
+				109078EC20A36C67002A5BD1 /* SettingCell.swift in Sources */,
 				108C60FF20A29F3B0051EFBE /* Video.swift in Sources */,
 				108C60F920A22D6E0051EFBE /* VideoCell.swift in Sources */,
 				108C60F620A22CAF0051EFBE /* Extensions.swift in Sources */,
