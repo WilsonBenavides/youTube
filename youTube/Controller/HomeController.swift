@@ -11,10 +11,23 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var videos: [Video] = {
+        var kanyeChannel = Channel()
+        kanyeChannel.name = "KanyeIsTheBestChannel"
+        kanyeChannel.profileImageName = "kanye_profile"
+        
         var blankSpaceVideo = Video()
         blankSpaceVideo.title = "Taylor Swift - Blank Space"
         blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
-        return [blankSpaceVideo]
+        blankSpaceVideo.channel = kanyeChannel
+        blankSpaceVideo.numberOfViews = 239843093
+        
+        var badBloodView = Video()
+        badBloodView.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
+        badBloodView.thumbnailImageName = "taylor_swift_bad_blood"
+        badBloodView.channel = kanyeChannel
+        badBloodView.numberOfViews = 1234567890
+        
+        return [blankSpaceVideo, badBloodView]
     }()
 
     override func viewDidLoad() {
@@ -81,7 +94,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (view.frame.width - 16 - 16) * 9 / 16
-        return CGSize(width: view.frame.width, height: height + 16 + 68)
+        return CGSize(width: view.frame.width, height: height + 16 + 88)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
