@@ -58,41 +58,13 @@ class VideoCell: BaseCell {
     
     func setupProfileImage() {
         if let profileImageUrl = video?.channel?.profileImageName {
-            
-            let url = URL(string: profileImageUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler:  { (data, responses, error) in
-                
-                if error != nil {
-                    print(error ?? "error handling")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.userProfileImageView.image = UIImage(data: data!)
-                }
-                
-            }).resume()
-            //print(thumbnailImageUrl)
+            userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
         }
     }
     
     func setupThumbnailImage() {
         if let thumbnailImageUrl = video?.thumbnailImageName {
-            
-            let url = URL(string: thumbnailImageUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler:  { (data, responses, error) in
-                
-                if error != nil {
-                    print(error ?? "error handling")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.thumbnailImageView.image = UIImage(data: data!)
-                }
-                
-            }).resume()
-            //print(thumbnailImageUrl)
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
         }
     }
     
@@ -111,7 +83,7 @@ class VideoCell: BaseCell {
         imageView.image = UIImage(named: "taylor_swift_profile")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
