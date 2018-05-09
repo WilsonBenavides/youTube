@@ -70,7 +70,15 @@ class MenuCell: BaseCell {
     
     override var isHighlighted: Bool {
         didSet {
-            print(123)
+            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.rgb(red: 91, green: 14, blue: 13)
+            print("is highlithted")
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            imageView.tintColor = isSelected ? UIColor.white : UIColor.rgb(red: 91, green: 14, blue: 13)
+            print("is selected")
         }
     }
     
