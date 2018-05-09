@@ -14,21 +14,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //        var kanyeChannel = Channel()
 //        kanyeChannel.name = "KanyeIsTheBestChannel"
 //        kanyeChannel.profileImageName = "kanye_profile"
-//        
+//
 //        var blankSpaceVideo = Video()
 //        blankSpaceVideo.title = "Taylor Swift - Blank Space"
 //        blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
 //        blankSpaceVideo.channel = kanyeChannel
 //        blankSpaceVideo.numberOfViews = 239843093
-//        
+//
 //        var badBloodView = Video()
 //        badBloodView.title = "Taylor Swift - Bad Blood featuring Kendrick Lamar"
 //        badBloodView.thumbnailImageName = "taylor_swift_bad_blood"
 //        badBloodView.channel = kanyeChannel
 //        badBloodView.numberOfViews = 1234567890
-//        
+//
 //        return [blankSpaceVideo, badBloodView]
 //    }()
+    
+    var videos : [Video]?
     
     func fetchVideos() {
         let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
@@ -41,10 +43,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                self.videos = [Video]()
                 
                 for dictionary in json as! [[String: AnyObject]] {
-                    print(dictionary["title"])
+                    
+                    let video = Video()
+                    video.title = dictionary["title"] as? String
+                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    self.videos?.append(video)
+                    //print(dictionary["title"])
                 }
+                self.collectionView?.reloadData()
                 //print(json)
             } catch let jsonError {
                 print(jsonError)
@@ -110,13 +119,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        return videos?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
         
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         return cell
     }
     
