@@ -85,17 +85,24 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationItem.rightBarButtonItems = [moreButton, searchBarButtonItem]
     }
     
-    let settingsLauncher = SettingsLauncher()
+    lazy var settingsLauncher : SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
-    @objc func handleMore() {
-        //settingsLauncher.showSettings()
-        
-        let dummySettingsViewContoller = UIViewController()
-        navigationController?.pushViewController(dummySettingsViewContoller, animated: true)
+    @objc func handleMore() {        
+        settingsLauncher.showSettings()
+        //showControllerForSettings()
     }
     
-    func showControllerForSettings() {
-        
+    func showControllerForSetting(setting: Setting) {
+        let dummySettingsViewContoller = UIViewController()
+        dummySettingsViewContoller.view.backgroundColor = .white
+        dummySettingsViewContoller.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(dummySettingsViewContoller, animated: true)
     }
     
     @objc func handleSearch() {
