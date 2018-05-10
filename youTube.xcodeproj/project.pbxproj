@@ -19,6 +19,7 @@
 		108C60FF20A29F3B0051EFBE /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108C60FE20A29F3B0051EFBE /* Video.swift */; };
 		109078EC20A36C67002A5BD1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109078EB20A36C67002A5BD1 /* SettingCell.swift */; };
 		109078EF20A401A9002A5BD1 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109078EE20A401A9002A5BD1 /* ApiService.swift */; };
+		109078F120A44BE3002A5BD1 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109078F020A44BE3002A5BD1 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		108C60FE20A29F3B0051EFBE /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		109078EB20A36C67002A5BD1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		109078EE20A401A9002A5BD1 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		109078F020A44BE3002A5BD1 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				108C60F820A22D6E0051EFBE /* VideoCell.swift */,
 				108C60FB20A263ED0051EFBE /* MenuBar.swift */,
 				109078EB20A36C67002A5BD1 /* SettingCell.swift */,
+				109078F020A44BE3002A5BD1 /* FeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10118E1420A3227900F721D7 /* SettingLauncher.swift in Sources */,
+				109078F120A44BE3002A5BD1 /* FeedCell.swift in Sources */,
 				108C60E520A1412D0051EFBE /* HomeController.swift in Sources */,
 				109078EC20A36C67002A5BD1 /* SettingCell.swift in Sources */,
 				108C60FF20A29F3B0051EFBE /* Video.swift in Sources */,

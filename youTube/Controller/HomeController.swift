@@ -49,7 +49,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.backgroundColor = UIColor.white
         
         //collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        //collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
         
         collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
@@ -135,10 +136,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        
-        let colors: [UIColor] = [.blue, .green, .gray, .purple]
-        cell.backgroundColor = colors[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)                
         return cell
     }
     
