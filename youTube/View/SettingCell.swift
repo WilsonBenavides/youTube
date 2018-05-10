@@ -15,7 +15,7 @@ class SettingCell: BaseCell {
             backgroundColor = isHighlighted ? .darkGray : .white
             nameLabel.textColor = isHighlighted ? .white : .black
             iconImageView.tintColor = isHighlighted ? .white : .darkGray
-            print(isHighlighted)
+            //print(isHighlighted)
         }
     }
     

@@ -93,6 +93,20 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let setting = settings[indexPath.item]
+        print(setting.name)
+        
+        UIView.animate(withDuration: 0.5) {
+            self.blackView.alpha = 0
+            
+            if let window = UIApplication.shared.keyWindow {
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+            }
+        }
+    }
+    
     override init() {
         super.init()
         
