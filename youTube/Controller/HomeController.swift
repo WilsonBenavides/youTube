@@ -88,7 +88,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let settingsLauncher = SettingsLauncher()
     
     @objc func handleMore() {
-        settingsLauncher.showSettings()
+        //settingsLauncher.showSettings()
+        
+        let dummySettingsViewContoller = UIViewController()
+        navigationController?.pushViewController(dummySettingsViewContoller, animated: true)
+    }
+    
+    func showControllerForSettings() {
+        
     }
     
     @objc func handleSearch() {
