@@ -11,6 +11,7 @@ import UIKit
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {    
     
     let cellId = "cellId"
+    let trendingCellId = "trendingCellId"
     
     let titles = ["Home", "Trending", "Subscriptions", "Account"]
 
@@ -38,6 +39,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
         
         collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
@@ -134,6 +136,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 1 {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: trendingCellId, for: indexPath)
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)                
         return cell
     }
